@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class mainStudent {
     public static void main(String[] args) throws IOException {
-        List<Student> students = Files.lines(Paths.get("C:\\Users\\qwerty\\IdeaProjects\\Hello\\Task 2\\students.txt"))
+        List<Student> students = Files.lines(Paths.get("C:\\Users\\qwerty\\IdeaProjects\\Projects\\src\\ru\\aston\\hometask_2\\studentsBook.txt"))
                 .filter(s -> !s.trim().isEmpty())
                 .map(mainStudent::parseStudent)
                 .collect(Collectors.toList());

@@ -1,5 +1,5 @@
 // В коде использовал глубокое копирование clone(), для возможности работы с полем-класом в Immutable
-
+public final class mainMutable{
     public static void main(String[] args) {
     //Инициализируем и проверяем изменяемый класс:
         Mutable mutable = new Mutable(32, "Aston");
@@ -17,4 +17,4 @@
         System.out.println("immutable.Mutable.name = "+immutable.getMutable().getName()); // Aston
         //Из отображаемых значений понятно,что immutable не изменился, и возвращаемая копия mutable создана успешно.
     }
-
+}
