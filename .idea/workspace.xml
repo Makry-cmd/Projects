@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="49061686-b7bc-4e8c-8c60-9b4a2c3244ba" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/ru/aston/hometask_2/mainStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/aston/hometask_2/mainStudent.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="rename-package" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3AntVgWiNkUiDwjNkw6GAUGEdin" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BufferedInputExample.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Mockingjay.executor": "Run",
+    "Application.ShallowCopyWithCopyMethod.executor": "Run",
+    "Application.Task 2.executor": "Run",
+    "Application.hometask.executor": "Run",
+    "Application.hometask_2.executor": "Run",
+    "Application.main.executor": "Run",
+    "Application.mainStudent.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "branch-2",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/qwerty/IdeaProjects/Hello",
+    "onboarding.tips.debug.path": "C:/Users/qwerty/IdeaProjects/Hello/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\qwerty\IdeaProjects\Projects\src\ru\aston\hometask_2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.hometask_2">
+    <configuration name="hometask" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mainMutable" />
+      <module name="RU" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/ru/aston/hometask" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="hometask_2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mainStudent" />
+      <module name="RU" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/ru/aston/hometask_2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.hometask_2" />
+      <item itemvalue="Application.hometask" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28539.33" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49061686-b7bc-4e8c-8c60-9b4a2c3244ba" name="Changes" comment="" />
+      <created>1773240197937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773240197937</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src" />
+      <path value="$PROJECT_DIR$/Task 1" />
+    </ignored-roots>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
