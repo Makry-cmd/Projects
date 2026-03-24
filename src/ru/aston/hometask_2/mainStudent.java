@@ -3,7 +3,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+
 //Рябунин Е.В.
+
 public class mainStudent {
     public static void main(String[] args) throws IOException {
         List<Student> students = Files.lines(Paths.get("C:\\Users\\qwerty\\IdeaProjects\\Hello\\Task 2\\students.txt"))
@@ -18,6 +20,7 @@ public class mainStudent {
                 .flatMap(List::stream)
                 .filter(b -> (b.getYear() > 2000))
                 .distinct()
+
                 .sorted(Comparator.comparingInt(Book::getPages))
                 .limit(3)
                 .map(Book::getYear)
@@ -25,6 +28,7 @@ public class mainStudent {
                 .ifPresentOrElse(
                         y -> System.out.println("Год findFirst(): " + y),
                         () -> System.out.println("Таких книг не найдено.")super
+
                 );
     }
 
@@ -46,5 +50,7 @@ public class mainStudent {
             }
         }
         return new Student(name, books);
+
     }
+
 }
