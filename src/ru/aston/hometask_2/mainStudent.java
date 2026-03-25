@@ -27,7 +27,7 @@ public class mainStudent {
                 .findFirst() //возвращает Optional<Integer>
                 .ifPresentOrElse(
                         y -> System.out.println("Год findFirst(): " + y),
-                        () -> System.out.println("Таких книг не найдено.")super
+                        () -> System.out.println("Таких книг не найдено")super
 
                 );
     }
