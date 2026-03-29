@@ -1,5 +1,5 @@
 ### IntelliJ IDEA #
-.idea
+.xml
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
