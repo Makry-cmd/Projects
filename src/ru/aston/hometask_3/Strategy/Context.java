@@ -1,4 +1,3 @@
-// Context.java
 public class Context {
     private Strategy strategy;
 

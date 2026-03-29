@@ -1,4 +1,15 @@
-package PACKAGE_NAME;
+public class SugarDecorator extends CoffeeDecorator {
+    public SugarDecorator(Coffee coffee) {
+        super(coffee);
+    }
 
-public class SugarDecorator {
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription() + ", with sugar";
+    }
+
+    @Override
+    public double cost() {
+        return decoratedCoffee.cost() + 0.2;
+    }
 }

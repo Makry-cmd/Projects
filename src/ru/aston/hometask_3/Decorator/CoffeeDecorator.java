@@ -1,4 +1,17 @@
-package PACKAGE_NAME;
+public abstract class CoffeeDecorator implements Coffee {
+    protected Coffee decoratedCoffee;
 
-public class CoffeeDecorator {
+    public CoffeeDecorator(Coffee coffee) {
+        this.decoratedCoffee = coffee;
+    }
+
+    @Override
+    public String getDescription() {
+        return decoratedCoffee.getDescription();
+    }
+
+    @Override
+    public double cost() {
+        return decoratedCoffee.cost();
+    }
 }
