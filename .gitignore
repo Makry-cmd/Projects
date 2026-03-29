@@ -8,6 +8,7 @@
 *.iml
 *.ipr
 out/
+scr/
 !**/src/main**/out/
 !**/src/test/**/out/
 
