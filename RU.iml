@@ -6,7 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/scr" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ru/aston/hometask" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ru/aston/hometask_2" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/ru/aston/hometask_3/Adapter" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
