@@ -4,6 +4,8 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
+//Рябунин Е.В.
+
 public class mainStudent {
     public static void main(String[] args) throws IOException {
         List<Student> students = Files.lines(Paths.get("C:\\Users\\qwerty\\IdeaProjects\\Projects\\src\\ru\\aston\\hometask_2\\studentsBook.txt"))
@@ -25,7 +27,8 @@ public class mainStudent {
                 .findFirst() //возвращает Optional<Integer>
                 .ifPresentOrElse(
                         y -> System.out.println("Год findFirst(): " + y),
-                        () -> System.out.println("Таких книг нет")
+                        () -> System.out.println("Таких книг не найдено")super
+
                 );
     }
 
