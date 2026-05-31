@@ -1,76 +1,84 @@
-   package com.example.dao;
+package com.example.dao;
 
-   import com.example.model.User;
-   import org.hibernate.Session;
-   import org.hibernate.SessionFactory;
-   import org.hibernate.Transaction;
-   import org.hibernate.cfg.Configuration;
-   import java.time.LocalDateTime;
-   
-   import java.util.List;
+import com.example.model.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
-   public class UserDaoImpl implements UserDao {
-       private SessionFactory sessionFactory;
+import java.util.List;
 
-       public UserDaoImpl() {
-           sessionFactory = new Configuration().configure().buildSessionFactory();
-       }
+public class UserDaoImpl {
+	
+    private final SessionFactory sessionFactory;
 
-       @Override
-       public void createUser(User user) {
-           Transaction transaction = null;
-           try (Session session = sessionFactory.openSession()) {
-               transaction = session.beginTransaction();
-               user.setCreatedAt(LocalDateTime.now());
-               session.save(user);
-               transaction.commit();
-           } catch (Exception e) {
-               if (transaction != null) transaction.rollback();
-               e.printStackTrace();
-           }
-       }
+    public UserDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
-       @Override
-       public User getUser(Long id) {
-           try (Session session = sessionFactory.openSession()) {
-               return session.get(User.class, id);
-           }
-       }
+    public void createUser(User user) {
+        Transaction transaction = null;
+		
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+			User existingUser = session.createQuery("FROM User WHERE email = :email", User.class)
+                                   .setParameter("email", user.getEmail())
+                                   .uniqueResult();
+		
+			if (existingUser != null) {
+				throw new IllegalArgumentException("Пользователь с таким email уже существует.");
+			}						
+            session.save(user);
+            transaction.commit();
+        }catch(IllegalArgumentException e){
+			e.printStackTrace();
+		}
+			catch (Exception e) {
+			e.printStackTrace();
+            if (transaction != null) transaction.rollback();
+            
+        }
+    }
 
-       @Override
-       public List<User> getAllUsers() {
-           try (Session session = sessionFactory.openSession()) {
-               return session.createQuery("from User", User.class).list();
-           }
-       }
+    public User getUser(Long id) {
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(User.class, id);
+        }
+    }
 
-       @Override
-       public void updateUser(User user) {
-           Transaction transaction = null;
-           try (Session session = sessionFactory.openSession()) {
-               transaction = session.beginTransaction();
-               session.update(user);
-               transaction.commit();
-           } catch (Exception e) {
-               if (transaction != null) transaction.rollback();
-               e.printStackTrace();
-           }
-       }
+    public void updateUser(User user) {
+        Transaction transaction = null;
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            session.update(user);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
+    }
 
-       @Override
-       public void deleteUser(Long id) {
-           Transaction transaction = null;
-           try (Session session = sessionFactory.openSession()) {
-               transaction = session.beginTransaction();
-               User user = session.get(User.class, id);
-               if (user != null) {
-                   session.delete(user);
-               }
-               transaction.commit();
-           } catch (Exception e) {
-               if (transaction != null) transaction.rollback();
-               e.printStackTrace();
-           }
-       }
-   }
+    public void deleteUser(Long id) {
+        Transaction transaction = null;
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            User user = session.get(User.class, id);
+            if (user != null) {
+                session.delete(user);
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public List<User> getAllUsers() {
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("from User", User.class).list();
+        }
+    }
+}
+
+
+
    
