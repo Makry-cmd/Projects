@@ -1,1 +1,7 @@
+com\example\dao\UserDaoImplTest.class
+com\example\dao\UserDao.class
+com\example\UserServiceAppTest.class
+com\example\util\HibernateUtil.class
 com\example\AppTest.class
+com\example\model\User.class
+com\example\UserServiceApp.class

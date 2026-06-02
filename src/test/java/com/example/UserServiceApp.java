@@ -11,11 +11,13 @@ public class UserServiceApp {
     private final UserDaoImpl userDao;
     private final Scanner scanner = new Scanner(System.in);
 
+    // Конструктор для внедрения зависимости (DI)
     public UserServiceApp(UserDaoImpl userDao) {
         this.userDao = userDao;
     }
 
     public static void main(String[] args) {
+        // В реальном приложении здесь создается реальный DAO
         UserDaoImpl realDao = new UserDaoImpl(HibernateUtil.getSessionFactory());
         UserServiceApp app = new UserServiceApp(realDao);
         app.runMenu();
@@ -45,13 +47,15 @@ public class UserServiceApp {
 				break;
 				case "exit":
 					System.out.println("Выход...");
-				return; 
+				return; // или System.exit(0);
 			default:
 				System.out.println("Неизвестная команда");
 			break;
 }
         }
     }
+
+    // --- БИЗНЕС-ЛОГИКА (ЭТО ТЕСТИРУЕМ) ---
 
     public void createUser(User user) {
         userDao.createUser(user);
@@ -72,7 +76,9 @@ public class UserServiceApp {
     public List<User> listUsers() {
         return userDao.getAllUsers();
     }
-	
+
+    // --- ОБРАБОТКА ВВОДА (UI LAYER) ---
+
     private void handleCreate() {
         User user = new User();
         System.out.print("Введите имя: ");

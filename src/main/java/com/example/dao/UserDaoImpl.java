@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class UserDaoImpl {
-	
+ 
     private final SessionFactory sessionFactory;
 
     public UserDaoImpl(SessionFactory sessionFactory) {
@@ -17,25 +17,24 @@ public class UserDaoImpl {
 
     public void createUser(User user) {
         Transaction transaction = null;
-		
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-			User existingUser = session.createQuery("FROM User WHERE email = :email", User.class)
-                                   .setParameter("email", user.getEmail())
-                                   .uniqueResult();
-		
-			if (existingUser != null) {
-				throw new IllegalArgumentException("Пользователь с таким email уже существует.");
-			}						
-            session.save(user);
+
+            User existingUser = session.createQuery("FROM User WHERE email = :email", User.class)
+                                       .setParameter("email", user.getEmail())
+                                       .uniqueResult();
+  
+            if (existingUser != null) {
+                throw new IllegalArgumentException("Пользователь с таким email уже существует: " + user.getEmail());
+            }      
+
+            session.persist(user); 
             transaction.commit();
-        }catch(IllegalArgumentException e){
-			e.printStackTrace();
-		}
-			catch (Exception e) {
-			e.printStackTrace();
-            if (transaction != null) transaction.rollback();
-            
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw e; 
         }
     }
 
@@ -49,11 +48,13 @@ public class UserDaoImpl {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            session.update(user);
+            session.merge(user); 
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            e.printStackTrace();
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw e;
         }
     }
 
@@ -63,12 +64,14 @@ public class UserDaoImpl {
             transaction = session.beginTransaction();
             User user = session.get(User.class, id);
             if (user != null) {
-                session.delete(user);
+                session.remove(user); 
             }
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            e.printStackTrace();
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw e;
         }
     }
 
