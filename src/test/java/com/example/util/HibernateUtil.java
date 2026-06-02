@@ -11,19 +11,12 @@ public class HibernateUtil {
 
     static {
         try {
-            // Попытка инициализации стандартным способом (через hibernate.cfg.xml)
-            // Это сработает в основном приложении
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {
-            // В тестах это ожидаемо, так как конфига может не быть или он не подходит
             System.err.println("Initial Hibernate initialization skipped/failed: " + ex.getMessage());
         }
     }
 
-    /**
-     * Метод, который требует твой тест.
-     * Создает SessionFactory с нуля, используя параметры из Testcontainers.
-     */
     public static void setSessionFactory(String url, String user, String password) {
         if (sessionFactory != null && !sessionFactory.isClosed()) {
             sessionFactory.close();
@@ -32,8 +25,6 @@ public class HibernateUtil {
         try {
             Configuration configuration = new Configuration();
 
-            // Вместо .configure() (который читает XML), 
-            // мы задаем настройки программно, чтобы гарантировать работу с контейнером
             Properties settings = new Properties();
             settings.put(Environment.DRIVER, "org.postgresql.Driver");
             settings.put(Environment.URL, url);
@@ -41,13 +32,9 @@ public class HibernateUtil {
             settings.put(Environment.PASS, password);
             settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
             settings.put(Environment.SHOW_SQL, "true");
-            settings.put(Environment.HBM2DDL_AUTO, "update"); // Авто-создание таблиц
+            settings.put(Environment.HBM2DDL_AUTO, "update"); 
 
             configuration.setProperties(settings);
-
-            // ВАЖНО: Если ты не используешь hibernate.cfg.xml, 
-            // тебе нужно вручную зарегистрировать все свои Entity-классы здесь:
-            // configuration.addAnnotatedClass(com.example.model.User.class);
 
             sessionFactory = configuration.buildSessionFactory();
         } catch (Exception e) {
