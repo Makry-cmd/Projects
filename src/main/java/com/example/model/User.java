@@ -2,8 +2,10 @@ package com.example.model;
 
 import lombok.*;
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "User")
 @Table(name = "users")
 @Getter             
 @Setter              

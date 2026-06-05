@@ -80,6 +80,11 @@ public class UserDaoImpl {
             return session.createQuery("from User", User.class).list();
         }
     }
+	 public void close() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+    }
 }
 
 

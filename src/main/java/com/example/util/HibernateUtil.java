@@ -4,6 +4,8 @@ package com.example.util;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
+import com.example.model.User;
+
 import java.util.Properties;
 
 public class HibernateUtil {
@@ -35,7 +37,8 @@ public class HibernateUtil {
             settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
             settings.put(Environment.SHOW_SQL, "true");
             settings.put(Environment.HBM2DDL_AUTO, "update"); 
-
+			configuration.addAnnotatedClass(User.class);
+			
             configuration.setProperties(settings);
 
 

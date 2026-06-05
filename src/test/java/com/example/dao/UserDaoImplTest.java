@@ -5,17 +5,27 @@ import com.example.model.User;
 import com.example.util.HibernateUtil;
 import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.hibernate.SessionFactory;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Testcontainers
 public class UserDaoImplTest {
+	@Container
     private static final PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:latest")
             .withDatabaseName("testdb")
             .withUsername("test")
             .withPassword("test");
 
     private UserDaoImpl userDao;
-
+	private SessionFactory sessionFactory;
+	
     @BeforeAll
     static void setupAll() {
         postgresContainer.start();
