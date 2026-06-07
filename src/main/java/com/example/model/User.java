@@ -1,34 +1,22 @@
 package com.example.model;
 
+import jakarta.persistence.*;
 import lombok.*;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-@Entity(name = "User")
+@Entity
 @Table(name = "users")
-@Getter             
-@Setter              
-@NoArgsConstructor  
-@AllArgsConstructor  
-@ToString(exclude = "id")
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "name", nullable = false)
+  
     private String name;
-
-    @Column(name = "email", nullable = false, unique = true)
     private String email;
-
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
 }
+
 
 
 
