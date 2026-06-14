@@ -1,8 +1,11 @@
 com\example\repository\UserRepository.class
 com\example\dao\UserDao.class
 com\example\service\UserService.class
+com\example\controller\NotificationController.class
 com\example\UserCliInterface.class
+com\example\service\EmailService.class
 com\example\dto\UserDto.class
+com\example\dto\UserEvent.class
 com\example\model\User.class
 com\example\controller\UserController.class
 com\example\UserServiceApp.class
