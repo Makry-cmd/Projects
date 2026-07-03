@@ -26,7 +26,7 @@ scr/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
+.target
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -39,3 +39,5 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+.target
