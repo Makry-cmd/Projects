@@ -40,7 +40,7 @@ class UserControllerTest {
         when(userService.getAllUsers()).thenReturn(List.of(userDto));
 
         mockMvc.perform(get("/api/users")
-                .contentType(MediaType.APPLICATION_JSON)) // Обычно хорошая практика указывать content type
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("John"));
     }
@@ -54,24 +54,21 @@ class UserControllerTest {
         savedDto.setId(1L);
         savedDto.setName("New User");
 
-        // Убедитесь, что метод в контроллере принимает именно такой DTO
         when(userService.createUser(any(UserDto.class))).thenReturn(savedDto);
 
         mockMvc.perform(post("/api/users")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(inputDto)))
-                .andExpect(status().isCreated()) // Убедитесь, что контроллер возвращает 201 Created
+                .andExpect(status().isCreated()) 
                 .andExpect(jsonPath("$.id").value(1))
                 .andExpect(jsonPath("$.name").value("New User"));
     }
 
     @Test
     void shouldDeleteUser() throws Exception {
-        // ВАЖНО: Если ваш метод удаления в сервисе ничего не возвращает (void),
-        // используйте doNothing()
         doNothing().when(userService).deleteUser(1L); 
 
         mockMvc.perform(delete("/api/users/1"))
-                .andExpect(status().isNoContent()); // Убедитесь, что контроллер возвращает 204 No Content
+                .andExpect(status().isNoContent());
     }
 }

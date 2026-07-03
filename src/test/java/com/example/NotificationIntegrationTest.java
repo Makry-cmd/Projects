@@ -1,5 +1,3 @@
-
-
 package com.example;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -32,14 +30,11 @@ class NotificationIntegrationTest {
 
     @BeforeAll
     static void setupProperties() {
-        // 1. Сначала запускаем контейнер вручную, если он еще не запущен
-        // (JUnit @Container сделает это, но для System.setProperty нам нужен адрес немедленно)
+
         if (!kafka.isRunning()) {
             kafka.start();
         }
         
-        // 2. Явно прописываем адрес в системные свойства JVM
-        // Это перекроет любые значения из application.properties/yml
         System.setProperty("spring.kafka.bootstrap-servers", kafka.getBootstrapServers());
     }
 
