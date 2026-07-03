@@ -1,6 +1,0 @@
-com\example\dao\UserDao.class
-com\example\App.class
-com\example\util\HibernateUtil.class
-com\example\model\User.class
-com\example\dao\UserDaoImpl.class
-com\example\UserServiceApp.class
