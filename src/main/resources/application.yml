@@ -1,18 +1,31 @@
+server:
+  port: 8080
+
 spring:
+  application:
+    name: notification-service
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      group-id: notification-group
-      auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: "*"
+        spring:
+          json:
+            trusted:
+              packages: '*'
   mail:
-    host: smtp.gmail.com # 
+    host: smtp.yandex.ru
     port: 587
-    username: Sidorov-email@gmail.com
-    password: Sidorov123-password
+    username: makry32rus@yandex.ru
+    password: uiveyltskjej****
     properties:
-      mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+

@@ -51,7 +51,7 @@ class NotificationIntegrationTest {
 
     @Test
     void testManualApiNotification_ShouldSendEmail() throws Exception {
-        mockMvc.perform(post("/api/notify")
+        mockMvc.perform(post("/api/users")
                         .param("email", "test@example.com")
                         .param("operation", "CREATE"))
                 .andExpect(status().isOk());
