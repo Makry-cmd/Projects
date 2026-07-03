@@ -1,0 +1,5 @@
+com\example\controller\NotificationController.class
+com\example\NotificationServiceApplication.class
+com\example\service\EmailService.class
+com\example\listener\KafkaNotificationListener.class
+com\example\dto\UserEvent.class

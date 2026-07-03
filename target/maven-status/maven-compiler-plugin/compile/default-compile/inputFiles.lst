@@ -1,0 +1,5 @@
+C:\Users\qwerty\microservices-root\notification-service\src\main\java\com\example\controller\NotificationController.java
+C:\Users\qwerty\microservices-root\notification-service\src\main\java\com\example\dto\UserEvent.java
+C:\Users\qwerty\microservices-root\notification-service\src\main\java\com\example\Listener\KafkaNotificationListener.java
+C:\Users\qwerty\microservices-root\notification-service\src\main\java\com\example\NotificationServiceApplication.java
+C:\Users\qwerty\microservices-root\notification-service\src\main\java\com\example\service\EmailService.java
