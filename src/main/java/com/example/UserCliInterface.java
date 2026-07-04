@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.service.UserService;
 import com.example.dto.UserDto;
+import com.example.controller.UserController;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
